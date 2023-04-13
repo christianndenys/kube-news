@@ -5,12 +5,14 @@ pipeline {
 
         stage("fazendo um echo"){
             steps{
-                step{
+
+                script{
                     sh 'echo teste'
                 }
+                
             }
         }
-        
+
     }
 
 }
