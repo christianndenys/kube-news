@@ -7,7 +7,7 @@ pipeline {
             steps{
 
                 script{
-                    dockerapp = docker.build("christiannd/kubenews:${env.BUILD_ID}","./src")
+                    dockerapp = docker.build("christiannd/kubenews:v${env.BUILD_ID}","./src")
                 }
 
             }
@@ -19,7 +19,7 @@ pipeline {
                 script{
                     docker.withRegistry('https://registry.hub.docker.com','dockerhub'){
                         dockerapp.push('latest')
-                        dockerapp.push("${env.BUILD_ID}")
+                        dockerapp.push("v${env.BUILD_ID}")
                     }
                 }
 
@@ -28,7 +28,7 @@ pipeline {
 
         stage("Deploy no k8s"){
             environment {
-                tag_version = "${env.BUILD_ID}"
+                tag_version = "v${env.BUILD_ID}"
             }
             steps{
                 withKubeConfig ([credentialsId: 'kubeconfig']){
