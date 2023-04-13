@@ -4,5 +4,6 @@ pipeline {
     steps{
         step{
             sh 'echo teste'
+        }
     }
 }
