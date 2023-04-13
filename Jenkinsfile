@@ -7,9 +7,9 @@ pipeline {
             steps{
 
                 script{
-                    sh 'echo teste'
+                    dockerapp = docker.build("christiannd/kubenews:${env.BUILD_ID}","./src")
                 }
-                
+
             }
         }
 
