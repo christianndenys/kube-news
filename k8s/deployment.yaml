@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
         - name: kubenews
-          image: christiannd/kubenews:v1
+          image: christiannd/kubenews:{{TAG}}
           ports:
             - containerPort: 8080
           env:
