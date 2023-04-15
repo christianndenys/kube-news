@@ -50,7 +50,7 @@ spec:
       labels:
         app: kubenews
       annotations:
-        prometheus.io/scrap: "true"
+        prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
         prometheus.path: "/metrics"
     spec:
